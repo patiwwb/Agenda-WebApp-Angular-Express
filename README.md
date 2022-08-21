@@ -18,7 +18,7 @@ The application is implemented as follow:
 
 ### Backend
 
-The backend of an application should have an API to:
+The backend of an application have an API to:
 
 - **create** and **delete** availabilities
 - **create** reservations (Note that reservations can be shorter than available time slots)

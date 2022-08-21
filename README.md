@@ -33,18 +33,25 @@ From the frontend we are able to:
 - provide a `start`, `end`, `title` and `email` for a new reservation and save it
 
 <br /> <br />
-![Screenshot](web-interface.png) <br /> <br /> 
-![Screenshot](prediction.png)
-![Screenshot](API-Postman.png)<br /> 
-
-# Run the React front end  
+There is also a login/logout system in place <br /> 
+![Screenshot](agenda-login.png) 
+An admin can cancel/add both availabilities and reservations <br /> 
+![Screenshot](agenda-admin.png)
+![Screenshot](agenda-admin-bis.png)
+An anonymous user can only book available slots <br /> 
+![Screenshot](agenda-booking-page.png)
+![Screenshot](mongoDB-doc.png)
+![Screenshot](mongoDB-col.png)
+![Screenshot](API-call-get.png)
+![Screenshot](API-call-post.png)
+# Run the React front end (Angular)
 cd app <br /> 
 npm install  <br /> 
 Update .env variables (for example: API_URL: 'http://localhost:3000') <br /> 
 ng serve <br /> 
 
 
-# Run the API server (FastAPI)
+# Run the API server (Express)
 cd api <br /> 
 npm install <br /> 
 npm i mongodb cors <br /> 

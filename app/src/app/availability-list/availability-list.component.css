@@ -1,0 +1,17 @@
+table { 
+    /* margin-top: -11%; */
+    margin-top: 1em; 
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  .info {
+    margin-top: 10%;
+    margin-left: 25%;
+  }
+
+  .info h4 {
+    margin-top: 10%;
+    margin-left: -7%;
+  }

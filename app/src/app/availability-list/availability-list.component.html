@@ -1,0 +1,70 @@
+<mat-spinner *ngIf="loading"></mat-spinner>
+<mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
+<mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
+
+<!-- <button hidden mat-raised-button color="green" (click)="refresh()">Refresh Data</button> -->
+
+<div *ngIf="!loading && !error && admin">
+  <table mat-table [dataSource]="availabilities" class="mat-elevation-z8">
+    <ng-container matColumnDef="availabilityDate">
+      <th mat-header-cell *matHeaderCellDef> Availability Date </th>
+      <td mat-cell *matCellDef="let availability"> {{ availability.availabilityDate | date:'dd/MM/yyyy' }} </td>
+    </ng-container>
+    <ng-container matColumnDef="start">
+      <th mat-header-cell *matHeaderCellDef> Start </th>
+      <td mat-cell *matCellDef="let availability"> {{ availability.start }} </td>
+    </ng-container>
+    <ng-container matColumnDef="end">
+      <th mat-header-cell *matHeaderCellDef> End </th>
+      <td mat-cell *matCellDef="let availability"> {{ availability.end }} </td>
+    </ng-container>
+    <ng-container matColumnDef="cancel">
+      <th mat-header-cell *matHeaderCellDef> Cancel </th>
+      <td mat-cell *matCellDef="let availability"><button (click)="cancelAvailability(availability._id)" mat-raised-button color="warn">Cancel</button></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+  <tr mat-row *matRowDef="let availabilities; columns: columns"></tr>
+  </table>
+</div>
+
+<div class="info" *ngIf="!loading && !error && !admin">
+  <h4>Please enter your reservation informations and book an available slot</h4>
+    <mat-form-field>
+      <input [(ngModel)]="title" name="title" matInput placeholder="Title">
+    </mat-form-field>
+    <mat-form-field>
+      <input [(ngModel)]="email" name="email" matInput placeholder="Email" type="email">
+    </mat-form-field>
+    <mat-form-field>
+      <input [(ngModel)]="time" name="time" matInput placeholder="00h00 (duration)" >
+    </mat-form-field> 
+    <br>
+
+    <a routerLink="/delete-reservation" >Already booked a slot and want to delete it ? </a>
+</div>
+
+<div *ngIf="!loading && !error && !admin">
+  <table mat-table [dataSource]="availabilities" class="mat-elevation-z8">
+    <ng-container matColumnDef="availabilityDate">
+      <th mat-header-cell *matHeaderCellDef> Availability Date </th>
+      <td mat-cell *matCellDef="let availability"> {{ availability.availabilityDate | date:'dd/MM/yyyy' }} </td>
+    </ng-container>
+    <ng-container matColumnDef="start">
+      <th mat-header-cell *matHeaderCellDef> Start </th>
+      <td mat-cell *matCellDef="let availability"> {{ availability.start }} </td>
+    </ng-container>
+    <ng-container matColumnDef="end">
+      <th mat-header-cell *matHeaderCellDef> End </th>
+      <td mat-cell *matCellDef="let availability"> {{ availability.end }} </td>
+    </ng-container>
+    <ng-container matColumnDef="book">
+      <th mat-header-cell *matHeaderCellDef> Book </th>
+      <td mat-cell *matCellDef="let availability"><button (click)=" bookAvailability(availability._id,availability.availabilityDate ,availability.start  , availability.end , title, email,time)" mat-raised-button color="success">Book</button></td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columns2"></tr>
+  <tr mat-row *matRowDef="let availabilities; columns: columns2"></tr>
+  </table>
+</div>
+
+<!-- createReservations(availability.availabilityDate ,availability.start  , availability.end , title, email); cancelAvailability(availability._id) -->

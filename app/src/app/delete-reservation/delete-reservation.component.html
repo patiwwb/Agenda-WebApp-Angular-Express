@@ -1,0 +1,24 @@
+<mat-toolbar *ngIf="successMsg" color="accent">{{ successMsg }}</mat-toolbar>
+<mat-toolbar *ngIf="errorMsg" color="warn">{{ errorMsg }}</mat-toolbar>
+<h4 class="info">Please enter information of the reservation you want to cancel</h4>
+
+<div class="form-container">
+
+  <form (submit)="deleteReservation()">
+    <mat-form-field>
+      <input [(ngModel)]="reservationDate" name="reservationDate" matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input [(ngModel)]="start" name="start" matInput placeholder="Start Hour">
+    </mat-form-field>
+    <mat-form-field>
+      <input [(ngModel)]="end" name="end" matInput placeholder="End Hour">
+    </mat-form-field>
+    <mat-form-field>
+        <input [(ngModel)]="email" name="email" matInput placeholder="Email">
+      </mat-form-field>
+    <button mat-raised-button color="primary">Delete Reservation</button>
+  </form>
+</div>
